@@ -8,15 +8,31 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.databinding.DataBindingUtil
 import com.puc.cinefy.databinding.ActivityMainBinding
+import com.puc.cinefy.model.Singleton
+import com.puc.cinefy.model.User
+import com.puc.cinefy.viewModel.MainViewModel
+import com.puc.cinefy.viewModel.MainViewModelFactory
 
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
+    lateinit var viewModel: MainViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
+
+        Singleton.init(this)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+        viewModel = MainViewModelFactory().create(MainViewModel::class.java)
 
         binding.btnRegister.setOnClickListener {
+
+            viewModel.addUser(
+                User(
+                    0, "Tiago", "teste", "teste"
+                )
+            )
+
             val intent = Intent(this, RegisterActivity::class.java)
             startActivity(intent)
         }
