@@ -7,10 +7,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.ViewModelProvider
 import com.puc.cinefy.databinding.ActivityLoginBinding
-import com.puc.cinefy.model.Singleton
-import com.puc.cinefy.viewModel.MainViewModel
+import com.puc.cinefy.user.model.UserSingleton
 
 class LoginActivity : AppCompatActivity() {
     lateinit var binding: ActivityLoginBinding
@@ -18,8 +16,8 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
 
-        Singleton.init(this)
-        println(Singleton.users)
+        UserSingleton.init(this)
+        println(UserSingleton.users)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_login)
 
         binding.btnLogin.setOnClickListener {
@@ -29,7 +27,7 @@ class LoginActivity : AppCompatActivity() {
             if (email.isEmpty() || password.isEmpty()) {
                 binding.txtMsg.text = "Preencher todos os campos"
             } else {
-                val user = Singleton.getUser(email)
+                val user = UserSingleton.getUser(email)
 
                 if (user != null && user.password == password) {
                     binding.txtMsg.text = "Realizando login"

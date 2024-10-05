@@ -7,13 +7,9 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.puc.cinefy.databinding.ActivityHomeBinding
 import com.puc.cinefy.movie.api.model.MovieResponse
-import com.puc.cinefy.movie.model.MovieSingleton
 import com.puc.cinefy.movie.viewModel.MovieViewModel
-import com.puc.cinefy.movie.viewModel.MovieViewModelFactory
-import com.puc.cinefy.viewModel.MainViewModel
 
 class HomeActivity : AppCompatActivity() {
     lateinit var binding: ActivityHomeBinding

@@ -4,7 +4,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.puc.cinefy.model.User
+import com.puc.cinefy.user.model.User
 
 @Dao
 interface MovieDao {

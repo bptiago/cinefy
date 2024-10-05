@@ -7,8 +7,8 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.databinding.DataBindingUtil
 import com.puc.cinefy.databinding.ActivityRegisterBinding
-import com.puc.cinefy.model.Singleton
-import com.puc.cinefy.model.User
+import com.puc.cinefy.user.model.UserSingleton
+import com.puc.cinefy.user.model.User
 
 class RegisterActivity : AppCompatActivity() {
     lateinit var binding: ActivityRegisterBinding
@@ -17,7 +17,7 @@ class RegisterActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
 
-        Singleton.init(this)
+        UserSingleton.init(this)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_register)
 
         binding.btnRegister.setOnClickListener {
@@ -30,7 +30,7 @@ class RegisterActivity : AppCompatActivity() {
             } else {
                 binding.txtMsg.text = "Usuário criado"
                 val user = User(null, name, email, password)
-                Singleton.addUser(user)
+                UserSingleton.addUser(user)
                 this.finish()
             }
         }

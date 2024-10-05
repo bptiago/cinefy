@@ -1,9 +1,8 @@
-package com.puc.cinefy.model
+package com.puc.cinefy.user.model
 
 import android.content.Context
-import com.puc.cinefy.movie.model.Movie
 
-object Singleton {
+object UserSingleton {
     lateinit var users: List<User>
     lateinit var dao: UserDao
 

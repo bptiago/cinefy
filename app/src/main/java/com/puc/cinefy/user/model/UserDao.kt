@@ -1,4 +1,4 @@
-package com.puc.cinefy.model
+package com.puc.cinefy.user.model
 
 import androidx.room.Dao
 import androidx.room.Insert
