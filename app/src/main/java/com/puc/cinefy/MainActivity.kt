@@ -26,14 +26,12 @@ class MainActivity : AppCompatActivity() {
         viewModel = MainViewModelFactory().create(MainViewModel::class.java)
 
         binding.btnRegister.setOnClickListener {
-
-            viewModel.addUser(
-                User(
-                    0, "Tiago", "teste", "teste"
-                )
-            )
-
             val intent = Intent(this, RegisterActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.btnLogin.setOnClickListener {
+            val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
         }
 

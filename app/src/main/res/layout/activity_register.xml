@@ -20,71 +20,55 @@
             <TextView
                 android:id="@+id/textView"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
                 android:text="Crie uma conta!"
 
                 android:textSize="28sp"
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/editTextText"
+                android:id="@+id/txtName"
                 android:layout_width="310dp"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
                 android:layout_marginTop="20dp"
                 android:hint="Nome"
-                android:ems="10"
-                android:inputType="textPassword" />
+                android:ems="10" />
 
             <EditText
-                android:id="@+id/editTextText2"
+                android:id="@+id/txtEmail"
                 android:layout_width="310dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:hint="Sobrenome"
-                android:ems="10"
-                android:inputType="textPassword" />
-
-            <EditText
-                android:id="@+id/editTextDate"
-                android:layout_width="310dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:hint="Data de Nascimento"
-                android:ems="10"
-                android:inputType="date" />
-
-            <EditText
-                android:id="@+id/editTextTextEmailAddress"
-                android:layout_width="310dp"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
                 android:layout_marginTop="15dp"
                 android:hint="E-mail"
                 android:ems="10"
                 android:inputType="textEmailAddress" />
 
             <EditText
-                android:id="@+id/editTextTextPassword"
+                android:id="@+id/txtPassword"
                 android:layout_width="310dp"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
                 android:layout_marginTop="15dp"
                 android:hint="Senha"
                 android:ems="10"
                 android:inputType="textPassword" />
 
-            <EditText
-                android:id="@+id/editTextTextPassword2"
-                android:layout_width="310dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:hint="Confirmar Senha"
-                android:ems="10"
-                android:inputType="textPassword" />
+            <TextView
+                android:id="@+id/txtMsg"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_marginBottom="5dp"
+                android:text=""
+                android:textAllCaps="true"
+                android:layout_marginTop="5dp"
+                android:textSize="18sp"
+                android:textColor="@color/main"
+                android:textStyle="bold" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/button2"
+                android:id="@+id/btnRegister"
                 android:layout_width="200dp"
                 android:layout_height="50dp"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="10dp"
                 android:background="@drawable/background_btn_full"
                 android:text="REGISTRAR"
                 android:textColor="#ffff"
@@ -99,14 +83,14 @@
                 android:id="@+id/btnBack"
                 android:layout_width="200dp"
                 android:layout_height="50dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="10dp"
                 android:text="VOLTAR"
                 android:textColor="#EA433F"
                 android:background="@drawable/background_btn_outline"
-                app:layout_constraintEnd_toEndOf="@+id/button2"
+                app:layout_constraintEnd_toEndOf="@+id/btnLogin"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/button2"
-                app:layout_constraintTop_toBottomOf="@+id/button2" />
+                app:layout_constraintStart_toStartOf="@+id/btnLogin"
+                app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
         </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

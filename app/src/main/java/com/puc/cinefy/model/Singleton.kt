@@ -17,4 +17,6 @@ object Singleton {
         dao.insert(user)
         users = dao.getAll()
     }
+
+    fun getUser(user: User): User? = dao.findByEmail(user.email)
 }

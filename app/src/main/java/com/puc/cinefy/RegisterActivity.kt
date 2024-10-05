@@ -10,12 +10,12 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModel
 import com.puc.cinefy.databinding.ActivityRegisterBinding
 import com.puc.cinefy.model.Singleton
+import com.puc.cinefy.model.User
 import com.puc.cinefy.viewModel.MainViewModel
 import com.puc.cinefy.viewModel.MainViewModelFactory
 
 class RegisterActivity : AppCompatActivity() {
     lateinit var binding: ActivityRegisterBinding
-    lateinit var viewModel: MainViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,9 +24,22 @@ class RegisterActivity : AppCompatActivity() {
         Singleton.init(this)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_register)
 
-        println(
-            Singleton.users
-        )
+        binding.btnRegister.setOnClickListener {
+            val name = binding.txtName.text.toString().trim()
+            val email = binding.txtEmail.text.toString().trim()
+            val password = binding.txtPassword.text.toString().trim()
+
+            if (password.isEmpty() || name.isEmpty() || email.isEmpty()) {
+                binding.txtMsg.text = "Preencher todos os campos"
+            } else {
+                binding.txtMsg.text = "Usuário criado"
+                val user = User(0, name, email, password)
+                // Usar o User(null....) na versão final!!!
+//                val user = User(null, name, email, password)
+                Singleton.addUser(user)
+                this.finish()
+            }
+        }
 
         binding.btnBack.setOnClickListener {
             this.finish()
