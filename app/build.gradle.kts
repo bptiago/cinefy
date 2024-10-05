@@ -57,4 +57,11 @@ dependencies {
     implementation(libs.androidx.room.runtime)
     annotationProcessor(libs.androidx.room.compiler)
     kapt("androidx.room:room-compiler:2.6.1")
+
+    implementation(libs.retrofit)
+    implementation(libs.converter.moshi)
+
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
+
+    implementation(libs.okhttp)
 }
