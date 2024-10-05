@@ -23,13 +23,13 @@ class LoginActivity : AppCompatActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_login)
 
         binding.btnLogin.setOnClickListener {
-            val email = binding.txtEmail.text.toString().trim()
+            val email = binding.txtEmail.text.toString().trim().lowercase()
             val password = binding.txtPassword.text.toString().trim()
 
             if (email.isEmpty() || password.isEmpty()) {
                 binding.txtMsg.text = "Preencher todos os campos"
             } else {
-                val user = Singleton.getUser(email.lowercase())
+                val user = Singleton.getUser(email)
 
                 if (user != null && user.password == password) {
                     binding.txtMsg.text = "Realizando login"
