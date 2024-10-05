@@ -26,16 +26,14 @@ class RegisterActivity : AppCompatActivity() {
 
         binding.btnRegister.setOnClickListener {
             val name = binding.txtName.text.toString().trim()
-            val email = binding.txtEmail.text.toString().trim()
+            val email = binding.txtEmail.text.toString().trim().lowercase()
             val password = binding.txtPassword.text.toString().trim()
 
             if (password.isEmpty() || name.isEmpty() || email.isEmpty()) {
                 binding.txtMsg.text = "Preencher todos os campos"
             } else {
                 binding.txtMsg.text = "Usuário criado"
-                val user = User(0, name, email, password)
-                // Usar o User(null....) na versão final!!!
-//                val user = User(null, name, email, password)
+                val user = User(null, name, email, password)
                 Singleton.addUser(user)
                 this.finish()
             }
