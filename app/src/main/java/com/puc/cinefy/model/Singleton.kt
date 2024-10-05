@@ -18,5 +18,5 @@ object Singleton {
         users = dao.getAll()
     }
 
-    fun getUser(user: User): User? = dao.findByEmail(user.email)
+    fun getUser(email: String): User? = dao.findByEmail(email)
 }
