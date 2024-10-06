@@ -6,7 +6,8 @@ data class MovieResponse(
     var id: Int,
     var title: String,
     var overview: String,
-//    var posterPath: String,
+    var genres: List<Genre>,
+    var backdrop_path: String,
     var vote_average: Double,
     var release_date: String
 )

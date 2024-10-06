@@ -64,4 +64,7 @@ dependencies {
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
 
     implementation(libs.okhttp)
+
+    implementation(libs.glide)
+    annotationProcessor(libs.compiler)
 }

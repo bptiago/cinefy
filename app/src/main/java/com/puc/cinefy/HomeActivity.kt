@@ -1,5 +1,6 @@
 package com.puc.cinefy
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.activity.enableEdgeToEdge
@@ -38,7 +39,10 @@ class HomeActivity : AppCompatActivity() {
         viewModel.popularMoviesData.observe(this) {
             movieAdapter = MovieRecyclerViewAdapter(it.results, object: MovieRecyclerViewAdapter.ItemClickListener {
                 override fun onClick(view: View, position: Int) {
-                    println(it.results[position])
+                    val movie = it.results[position]
+                    val intent = Intent(applicationContext, MovieActivity::class.java)
+                    intent.putExtra("MOVIE_ID", movie.id.toString())
+                    startActivity(intent)
                 }
             })
             movieRecycler.adapter = movieAdapter

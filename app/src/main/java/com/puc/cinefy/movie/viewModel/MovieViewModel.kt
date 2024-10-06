@@ -24,8 +24,8 @@ class MovieViewModel : ViewModel() {
         _popularMoviesData.value = movies
     }
 
-    fun loadMovie() = viewModelScope.launch {
-        val movie = movieService.movieApi.getMovieById()
+    fun loadMovie(id: Int) = viewModelScope.launch {
+        val movie = movieService.movieApi.getMovieById(id)
         _movieData.value = movie
     }
 
