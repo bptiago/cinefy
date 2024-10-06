@@ -1,15 +1,17 @@
 package com.puc.cinefy.movie.presenter
 
+import android.content.Context
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.puc.cinefy.databinding.RecyclerItemBinding
 import com.puc.cinefy.movie.api.model.MovieResponse
 import java.util.Locale
 
-class MovieRecyclerViewAdapter(private val movies: List<MovieResponse>, val itemClickListener: ItemClickListener?) : RecyclerView.Adapter<MovieRecyclerViewAdapter.ViewHolder>() {
+class MovieRecyclerViewAdapter(private val movies: List<MovieResponse>, private val context: Context,val itemClickListener: ItemClickListener?) : RecyclerView.Adapter<MovieRecyclerViewAdapter.ViewHolder>() {
 
     interface ItemClickListener{
         fun onClick(view: View, position:Int)
@@ -19,9 +21,9 @@ class MovieRecyclerViewAdapter(private val movies: List<MovieResponse>, val item
 
         fun bind(movie: MovieResponse){
             binding.apply {
-                txtId.text = movie.id.toString()
+                val posterImageUrl = "https://image.tmdb.org/t/p/original" + movie.poster_path
+                Glide.with(context).load(posterImageUrl).into(imageView3)
                 txtTitle.text = movie.title
-
                 val strRating = String.format(Locale.US, "%.2f", movie.vote_average)
                 val strDate = movie.release_date.replace("-", "/")
                 val strInfo = "$strDate  -  $strRating"

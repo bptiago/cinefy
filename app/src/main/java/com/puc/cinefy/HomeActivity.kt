@@ -26,18 +26,14 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
 
-//        MovieSingleton.init(this)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_home)
         viewModel = ViewModelProvider(this).get(MovieViewModel::class.java)
         movieRecycler = binding.movieRecyclerView
         movieRecycler.layoutManager = LinearLayoutManager(this)
 
         viewModel.loadPopularMovies()
-
-//        viewModel.loadMovie()
-
         viewModel.popularMoviesData.observe(this) {
-            movieAdapter = MovieRecyclerViewAdapter(it.results, object: MovieRecyclerViewAdapter.ItemClickListener {
+            movieAdapter = MovieRecyclerViewAdapter(it.results, this, object: MovieRecyclerViewAdapter.ItemClickListener {
                 override fun onClick(view: View, position: Int) {
                     val movie = it.results[position]
                     val intent = Intent(applicationContext, MovieActivity::class.java)
@@ -48,17 +44,10 @@ class HomeActivity : AppCompatActivity() {
             movieRecycler.adapter = movieAdapter
         }
 
-//        viewModel.movieData.observe(this) {
-//            println(it.overview)
-//        }
-
-
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-
-
     }
 }
