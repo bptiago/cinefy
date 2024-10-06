@@ -5,11 +5,11 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.puc.cinefy.databinding.RecyclerItemBinding
-import com.puc.cinefy.movie.api.model.Movie
+import com.puc.cinefy.movie.api.model.MovieResponse
 
-class MovieRecyclerViewAdapter(private val movies: List<Movie>) : RecyclerView.Adapter<MovieRecyclerViewAdapter.ViewHolder>() {
+class MovieRecyclerViewAdapter(private val movies: List<MovieResponse>) : RecyclerView.Adapter<MovieRecyclerViewAdapter.ViewHolder>() {
     inner class ViewHolder(val binding: RecyclerItemBinding) :RecyclerView.ViewHolder(binding.root){
-        fun bind(movie: Movie){
+        fun bind(movie: MovieResponse){
             binding.apply {
                 textView1.text = movie.id.toString()
                 textView2.text = movie.overview

@@ -6,18 +6,27 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.puc.cinefy.movie.api.MovieService
 import com.puc.cinefy.movie.api.model.MovieResponse
+import com.puc.cinefy.movie.api.model.PopularMoviesResponse
 import kotlinx.coroutines.launch
 
 class MovieViewModel : ViewModel() {
 //    val moviesLiveData = MutableLiveData<List<Movie>>()
     private val movieService = MovieService()
 
-    private val _moviesData: MutableLiveData<MovieResponse> = MutableLiveData()
-    val moviesData: LiveData<MovieResponse> = _moviesData
+    private val _popularMoviesData: MutableLiveData<PopularMoviesResponse> = MutableLiveData()
+    val popularMoviesData: LiveData<PopularMoviesResponse> = _popularMoviesData
 
-    fun loadData() = viewModelScope.launch {
+    private var _movieData: MutableLiveData<MovieResponse> = MutableLiveData()
+    var movieData: LiveData<MovieResponse> = _movieData
+
+    fun loadPopularMovies() = viewModelScope.launch {
         val movies = movieService.movieApi.getPopularMovies()
-        _moviesData.value = movies
+        _popularMoviesData.value = movies
+    }
+
+    fun loadMovie() = viewModelScope.launch {
+        val movie = movieService.movieApi.getMovieById()
+        _movieData.value = movie
     }
 
 }

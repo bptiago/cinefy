@@ -10,7 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.puc.cinefy.databinding.ActivityHomeBinding
-import com.puc.cinefy.movie.api.model.MovieResponse
+import com.puc.cinefy.movie.api.model.PopularMoviesResponse
 import com.puc.cinefy.movie.presenter.MovieRecyclerViewAdapter
 import com.puc.cinefy.movie.viewModel.MovieViewModel
 
@@ -30,11 +30,18 @@ class HomeActivity : AppCompatActivity() {
         movieRecycler = binding.movieRecyclerView
         movieRecycler.layoutManager = LinearLayoutManager(this)
 
-        viewModel.loadData()
-        viewModel.moviesData.observe(this) {
+        viewModel.loadPopularMovies()
+
+//        viewModel.loadMovie()
+
+        viewModel.popularMoviesData.observe(this) {
             movieAdapter = MovieRecyclerViewAdapter(it.results)
             movieRecycler.adapter = movieAdapter
         }
+
+//        viewModel.movieData.observe(this) {
+//            println(it.overview)
+//        }
 
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
@@ -46,7 +53,7 @@ class HomeActivity : AppCompatActivity() {
 
     }
 
-    private fun loadMoviesData(movieData: MovieResponse) {
+    private fun loadMoviesData(movieData: PopularMoviesResponse) {
         movieAdapter = MovieRecyclerViewAdapter(movieData.results)
     }
 }
