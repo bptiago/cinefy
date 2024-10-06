@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.puc.cinefy.R
 import com.puc.cinefy.databinding.RecyclerItemBinding
 import com.puc.cinefy.movie.api.model.MovieResponse
 import java.util.Locale
@@ -22,7 +23,10 @@ class MovieRecyclerViewAdapter(private val movies: List<MovieResponse>, private 
         fun bind(movie: MovieResponse){
             binding.apply {
                 val posterImageUrl = "https://image.tmdb.org/t/p/original" + movie.poster_path
-                Glide.with(context).load(posterImageUrl).into(imageView3)
+                Glide.with(context).load(posterImageUrl)
+                    .placeholder(R.drawable.poster_placeholder)
+                    .error(R.drawable.error_404)
+                    .into(imageView3)
                 txtTitle.text = movie.title
                 val strRating = String.format(Locale.US, "%.2f", movie.vote_average)
                 val strDate = movie.release_date.replace("-", "/")

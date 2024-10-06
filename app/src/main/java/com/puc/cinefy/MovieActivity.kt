@@ -33,7 +33,10 @@ class MovieActivity : AppCompatActivity() {
             binding.txtOverview.text = it.overview
             binding.txtGenre.text = it.genres[0].name
             val backgroudImageUrl = "https://image.tmdb.org/t/p/original" + it.backdrop_path
-            Glide.with(this).load(backgroudImageUrl).into(binding.imageView2)
+            Glide.with(this).load(backgroudImageUrl)
+                .placeholder(R.drawable.poster_placeholder)
+                .error(R.drawable.error_404)
+                .into(binding.imageView2)
         }
 
         binding.btnBack.setOnClickListener {
