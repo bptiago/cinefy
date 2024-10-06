@@ -6,6 +6,8 @@ import retrofit2.http.Header
 
 internal interface MovieApi {
     @GET("movie/100")
-    suspend fun getMovieById(
-    ): MovieResponse
+    suspend fun getMovieById(): MovieResponse
+
+    @GET("movie/popular")
+    suspend fun getPopularMovies() : MovieResponse
 }

@@ -5,15 +5,14 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.puc.cinefy.databinding.RecyclerItemBinding
-import com.puc.cinefy.movie.model.Movie
-import com.puc.cinefy.movie.model.MovieSingleton
+import com.puc.cinefy.movie.api.model.Movie
 
-class MovieRecyclerViewAdapter() : RecyclerView.Adapter<MovieRecyclerViewAdapter.ViewHolder>() {
+class MovieRecyclerViewAdapter(private val movies: List<Movie>) : RecyclerView.Adapter<MovieRecyclerViewAdapter.ViewHolder>() {
     inner class ViewHolder(val binding: RecyclerItemBinding) :RecyclerView.ViewHolder(binding.root){
         fun bind(movie: Movie){
             binding.apply {
-                textView1.text = movie.title
-                textView2.text = movie.id.toString()
+                textView1.text = movie.id.toString()
+                textView2.text = movie.overview
 //                root.setOnClickListener {
 //                    itemClickListener?.onClick(binding.root,adapterPosition)
 //                }
@@ -37,10 +36,10 @@ class MovieRecyclerViewAdapter() : RecyclerView.Adapter<MovieRecyclerViewAdapter
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        MovieSingleton.movies[position].apply {
+        movies[position].apply {
             holder.bind(this)
         }
         Log.d("Recycler","onBindViewHolder $position")
     }
-    override fun getItemCount() = MovieSingleton.movies.size
+    override fun getItemCount() = movies.size
 }

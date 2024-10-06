@@ -11,14 +11,13 @@ import kotlinx.coroutines.launch
 class MovieViewModel : ViewModel() {
 //    val moviesLiveData = MutableLiveData<List<Movie>>()
     private val movieService = MovieService()
-//    private val token = "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiZTMyMzNlOWMzODQwODU3M2ZhMGVjOGIxM2ViNTc4ZiIsIm5iZiI6MTcyODE2MjAxMS4zMTg3NjMsInN1YiI6IjY1Zjk5NjU4MzNhMzc2MDE2MTM2MzM3OCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.8cqFsMuHPPQbx1ztn0i7TAlsN47Tk31Ibuhc3ixb2z4"
 
-    private val _movieData: MutableLiveData<MovieResponse> = MutableLiveData()
-    val movieData: LiveData<MovieResponse> = _movieData
+    private val _moviesData: MutableLiveData<MovieResponse> = MutableLiveData()
+    val moviesData: LiveData<MovieResponse> = _moviesData
 
     fun loadData() = viewModelScope.launch {
-        val movie = movieService.movieApi.getMovieById()
-        _movieData.value = movie
+        val movies = movieService.movieApi.getPopularMovies()
+        _moviesData.value = movies
     }
 
 }
