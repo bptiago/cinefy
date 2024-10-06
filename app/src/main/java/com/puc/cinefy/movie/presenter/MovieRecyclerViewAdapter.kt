@@ -29,8 +29,9 @@ class MovieRecyclerViewAdapter(private val movies: List<MovieResponse>, private 
                     .into(imageView3)
                 txtTitle.text = movie.title
                 val strRating = String.format(Locale.US, "%.2f", movie.vote_average)
+                txtRating.text = strRating
                 val strDate = movie.release_date.replace("-", "/")
-                val strInfo = "$strDate  -  $strRating"
+                val strInfo = "Released on $strDate"
                 txtInfo.text = strInfo
 
                 root.setOnClickListener {

@@ -4,7 +4,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="80dp"
         android:layout_marginVertical="10dp"
         android:layout_marginHorizontal="10dp"
         android:orientation="horizontal">
@@ -40,6 +40,19 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@android:string/untitled"
+                android:textSize="18sp"
+                android:textAlignment="viewStart" />
+
+            <TextView
+                android:id="@+id/txtRating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@android:string/untitled"
+                android:background="@drawable/label_rating"
+                android:layout_marginTop="5dp"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
                 android:textAlignment="viewStart" />
         </LinearLayout>
 

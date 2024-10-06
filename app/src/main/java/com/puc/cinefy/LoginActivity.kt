@@ -37,9 +37,10 @@ class LoginActivity : AppCompatActivity() {
                     binding.txtMsg.text = "E-mail e/ou senha incorreto(s)"
                 }
             }
+        }
 
-
-
+        binding.btnBack.setOnClickListener {
+            this.finish()
         }
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
