@@ -21,7 +21,7 @@
                 android:id="@+id/textView"
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
-                android:text="Crie uma conta!"
+                android:text="Create an account!"
 
                 android:textSize="28sp"
                 android:textStyle="bold" />
@@ -31,7 +31,7 @@
                 android:layout_width="310dp"
                 android:layout_height="50dp"
                 android:layout_marginTop="20dp"
-                android:hint="Nome"
+                android:hint="@string/name"
                 android:ems="10" />
 
             <EditText
@@ -39,7 +39,7 @@
                 android:layout_width="310dp"
                 android:layout_height="50dp"
                 android:layout_marginTop="15dp"
-                android:hint="E-mail"
+                android:hint="@string/e_mail"
                 android:ems="10"
                 android:inputType="textEmailAddress" />
 
@@ -48,7 +48,7 @@
                 android:layout_width="310dp"
                 android:layout_height="50dp"
                 android:layout_marginTop="15dp"
-                android:hint="Senha"
+                android:hint="@string/password"
                 android:ems="10"
                 android:inputType="textPassword" />
 
@@ -70,7 +70,7 @@
                 android:layout_height="50dp"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/background_btn_full"
-                android:text="REGISTRAR"
+                android:text="@string/sign_up"
                 android:textColor="#ffff"
                 android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="@+id/textView4"
@@ -84,7 +84,7 @@
                 android:layout_width="200dp"
                 android:layout_height="50dp"
                 android:layout_marginTop="10dp"
-                android:text="VOLTAR"
+                android:text="@string/back"
                 android:textColor="#EA433F"
                 android:background="@drawable/background_btn_outline"
                 app:layout_constraintEnd_toEndOf="@+id/btnLogin"

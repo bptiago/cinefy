@@ -26,9 +26,9 @@ class RegisterActivity : AppCompatActivity() {
             val password = binding.txtPassword.text.toString().trim()
 
             if (password.isEmpty() || name.isEmpty() || email.isEmpty()) {
-                binding.txtMsg.text = "Preencher todos os campos"
+                binding.txtMsg.text = "Fill in all fields"
             } else {
-                binding.txtMsg.text = "Usuário criado"
+                binding.txtMsg.text = "User created"
                 val user = User(null, name, email, password)
                 UserSingleton.addUser(user)
                 this.finish()

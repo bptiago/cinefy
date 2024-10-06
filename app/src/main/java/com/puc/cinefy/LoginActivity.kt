@@ -25,16 +25,16 @@ class LoginActivity : AppCompatActivity() {
             val password = binding.txtPassword.text.toString().trim()
 
             if (email.isEmpty() || password.isEmpty()) {
-                binding.txtMsg.text = "Preencher todos os campos"
+                binding.txtMsg.text = "Fill in all fields"
             } else {
                 val user = UserSingleton.getUser(email)
 
                 if (user != null && user.password == password) {
-                    binding.txtMsg.text = "Realizando login"
+                    binding.txtMsg.text = "Logging in"
                     val intent = Intent(this, HomeActivity::class.java)
                     startActivity(intent)
                 } else {
-                    binding.txtMsg.text = "E-mail e/ou senha incorreto(s)"
+                    binding.txtMsg.text = "E-mail and/or password incorrect"
                 }
             }
         }

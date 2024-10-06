@@ -90,7 +90,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="44dp"
             android:background="@drawable/background_btn_full"
-            android:text="VOLTAR"
+            android:text="@string/back"
             android:textColor="#ffff"
             android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="@+id/linearLayout2"
