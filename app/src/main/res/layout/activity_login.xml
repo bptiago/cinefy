@@ -63,7 +63,7 @@
             android:layout_marginTop="10dp"
             android:background="@drawable/background_btn_full"
             android:text="@string/log_in"
-            android:textColor="#ffff"
+            android:textColor="?attr/colorSecondary"
             android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="@+id/textView4"
             app:layout_constraintHorizontal_bias="0.49"

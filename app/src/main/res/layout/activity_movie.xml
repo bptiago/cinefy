@@ -37,7 +37,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@android:string/untitled"
-                android:textColor="@color/black"
+                android:textColor="?attr/colorPrimary"
                 android:textSize="30sp"
                 android:textStyle="bold" />
 
@@ -58,7 +58,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
                 android:text="Overview"
-                android:textColor="@color/black"
+                android:textColor="?attr/colorPrimary"
                 android:textSize="22sp"
                 android:textStyle="italic" />
 
@@ -77,7 +77,7 @@
                 android:layout_marginTop="15dp"
                 android:background="@drawable/label_genre"
                 android:text="@android:string/untitled"
-                android:textColor="@color/white"
+                android:textColor="?attr/colorSecondary"
                 android:textSize="12sp"
                 android:textStyle="bold" />
 
@@ -91,7 +91,7 @@
             android:layout_marginTop="44dp"
             android:background="@drawable/background_btn_full"
             android:text="@string/back"
-            android:textColor="#ffff"
+            android:textColor="?attr/colorSecondary"
             android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="@+id/linearLayout2"
             app:layout_constraintHorizontal_bias="0.498"
