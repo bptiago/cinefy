@@ -33,8 +33,14 @@ class RegisterActivity : AppCompatActivity() {
             } else {
                 binding.txtMsg.text = "User created"
                 val user = User(null, name, email, password)
-                viewModel.addUser(user)
-                this.finish()
+
+                viewModel.getUserByEmail(email)?.let {
+                    binding.txtMsg.text = "User already exists. Try another e-mail"
+                } ?: let {
+                    viewModel.addUser(user)
+                    this.finish()
+                }
+
             }
         }
 
