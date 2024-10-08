@@ -10,7 +10,6 @@ import com.puc.cinefy.movie.api.model.PopularMoviesResponse
 import kotlinx.coroutines.launch
 
 class MovieViewModel : ViewModel() {
-//    val moviesLiveData = MutableLiveData<List<Movie>>()
     private val movieService = MovieService()
 
     private val _popularMoviesData: MutableLiveData<PopularMoviesResponse> = MutableLiveData()
@@ -30,12 +29,3 @@ class MovieViewModel : ViewModel() {
     }
 
 }
-
-//    fun addUser(movie: Movie){
-//        Singleton.addUser(movie)
-//        moviesLiveData.value = MovieSingleton.movies
-//    }
-//
-//    fun refresh(){
-//        moviesLiveData.value = MovieSingleton.movies
-//    }
