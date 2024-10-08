@@ -6,18 +6,20 @@ import com.puc.cinefy.user.model.UserSingleton
 import com.puc.cinefy.user.model.User
 
 class UserViewModel : ViewModel() {
-    val userLiveData = MutableLiveData<List<User>>()
+    val usersLiveData = MutableLiveData<List<User>>()
+
+    fun loadUsers() {
+        usersLiveData.value = UserSingleton.users
+    }
 
     fun addUser(user: User){
         UserSingleton.addUser(user)
-        userLiveData.value = UserSingleton.users
+        usersLiveData.value = UserSingleton.users
     }
 
-    fun getUser(email: String) {
-        UserSingleton.getUser(email)
-    }
+    fun getUserByEmail(email: String) : User? = UserSingleton.getUser(email)
 
     fun refresh(){
-        userLiveData.value = UserSingleton.users
+        usersLiveData.value = UserSingleton.users
     }
 }

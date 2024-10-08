@@ -6,19 +6,22 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.ViewModelProvider
 import com.puc.cinefy.databinding.ActivityRegisterBinding
 import com.puc.cinefy.user.model.UserSingleton
 import com.puc.cinefy.user.model.User
+import com.puc.cinefy.user.viewModel.UserViewModel
 
 class RegisterActivity : AppCompatActivity() {
     lateinit var binding: ActivityRegisterBinding
+    lateinit var viewModel: UserViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
 
-        UserSingleton.init(this)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_register)
+        viewModel = ViewModelProvider(this).get(UserViewModel::class.java)
 
         binding.btnRegister.setOnClickListener {
             val name = binding.txtName.text.toString().trim()
@@ -30,7 +33,7 @@ class RegisterActivity : AppCompatActivity() {
             } else {
                 binding.txtMsg.text = "User created"
                 val user = User(null, name, email, password)
-                UserSingleton.addUser(user)
+                viewModel.addUser(user)
                 this.finish()
             }
         }

@@ -7,18 +7,22 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.ViewModelProvider
 import com.puc.cinefy.databinding.ActivityLoginBinding
+import com.puc.cinefy.movie.viewModel.MovieViewModel
 import com.puc.cinefy.user.model.UserSingleton
+import com.puc.cinefy.user.viewModel.UserViewModel
 
 class LoginActivity : AppCompatActivity() {
     lateinit var binding: ActivityLoginBinding
+    lateinit var viewModel: UserViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
 
-        UserSingleton.init(this)
         println(UserSingleton.users)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_login)
+        viewModel = ViewModelProvider(this).get(UserViewModel::class.java)
 
         binding.btnLogin.setOnClickListener {
             val email = binding.txtEmail.text.toString().trim().lowercase()
@@ -27,7 +31,7 @@ class LoginActivity : AppCompatActivity() {
             if (email.isEmpty() || password.isEmpty()) {
                 binding.txtMsg.text = "Fill in all fields"
             } else {
-                val user = UserSingleton.getUser(email)
+                val user = viewModel.getUserByEmail(email)
 
                 if (user != null && user.password == password) {
                     binding.txtMsg.text = "Logging in"
