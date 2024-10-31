@@ -25,6 +25,6 @@ internal class MovieService {
 
     private companion object {
         private const val BASE_URL = "https://api.themoviedb.org/3/"
-        private const val TOKEN = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiZTMyMzNlOWMzODQwODU3M2ZhMGVjOGIxM2ViNTc4ZiIsIm5iZiI6MTcyODE2MjAxMS4zMTg3NjMsInN1YiI6IjY1Zjk5NjU4MzNhMzc2MDE2MTM2MzM3OCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.8cqFsMuHPPQbx1ztn0i7TAlsN47Tk31Ibuhc3ixb2z4"
+        private const val TOKEN = ""
     }
 }
